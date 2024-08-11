@@ -1,0 +1,155 @@
+/*  box-sizing:border-box özelliği dolayı padding ve border değerlerinin kapladığı alan hesaba katılmaz 
+ve nesnelerin kapladığı alan sadece verdiğimiz genişlik kadar olacaktır.
+ */
+
+* {
+    box-sizing: border-box;
+}
+
+
+
+/* Navbar */
+.navbar bg-body-tertiary{
+   margin-left: 25px;
+   margin-right: 25px;
+   text-align: center;
+}
+.navbar-brand{
+    border: 3px solid black;
+    padding: 15px;
+
+}
+.logo-title{
+    border: 3px solid black;
+    padding: 15px;
+
+}
+
+/* Restorant Aciklama  */
+.restoran-aciklama{
+  border:3px solid black;
+  color: black;
+  font-size: 15px;
+  margin:auto;
+  padding: 40px;
+
+}
+
+
+/* Menuler */
+.ana-menuler{
+    width: 100%;
+    margin-left: auto;
+    border: 3px solid black;
+    
+}
+
+.kahvaltilar{
+  border:3px solid blue;
+  text-align: center;
+  width: 31%;
+  display: inline-block;
+  padding: 20px;
+
+}
+.oglen-menusu{
+    border:3px solid blue;
+    text-align: center;
+    width: 33%;
+    display: inline-block;
+    padding: 20px;
+
+}
+.aksam-menusu{
+    border:3px solid blue;
+    text-align: center;
+    width: 33%;
+    display: inline-block;
+    padding: 20px;
+
+
+
+}
+.alternatif-menu{
+    width: 100%;
+    margin-left: auto;
+    border: 3px solid black;
+}
+.yiyecek-menusu{  width:400px;
+    border:2px solid blue;
+    padding:20px; 
+    text-align: center;
+    display: inline-block;
+    width: 49%;
+
+
+}
+.icecek-menusu{
+    width: 50%;   
+     border:2px solid blue;
+    padding:20px; 
+    text-align: center;
+    display: inline-block;
+
+}
+
+/* Genel Urunler */
+.menu-detay{
+    border: 5px solid black;
+}
+.urun{
+    display: inline-block;
+    border: 5px solid black;
+}
+.urun-gorsel{
+    border: 1px solid yellow;
+    display: inline-block;
+    width: 250px;
+    margin:40px;
+}
+.urun-bilgi{
+    border: 5px solid black;
+    display: inline-block;
+    width: 70%;
+}
+.urun-adi{
+    border: 3px solid black;
+    display: inline-block;
+    width: 15%;
+    margin: 20px;
+    text-align: center;
+}
+.urun-aciklama{
+    border: 3px solid black;
+    display:  inline-block;
+    width: 15%;
+    margin: 20px;
+    text-align: center;
+}
+.urun-fiyat{
+    border: 3px solid black;
+    display: inline-block;
+    width: 10%;
+    margin: 20px;
+    padding: 20px;
+    text-align: center;
+}
+.sepete-ekle{
+    border: 3px solid black;
+    display: inline-block;
+    width: 15%;
+    margin: 20px;
+    padding: 20px;
+    text-align: center;
+}
+.sepet-detay{
+    border: 3px solid black;
+    display: inline-block;
+    width: 100%;
+    margin: auto;
+    padding: 25px;
+    text-align: center;
+
+}
+
+
