@@ -1,7 +1,7 @@
 {
   "categories": [
     {
-      "name": "Kahvaltı",
+      "name": "Kahvaltilar",
       "items": {
         "yiyecekler": [
           {
@@ -136,7 +136,7 @@
       }
     },
     {
-      "name": "Öğle",
+      "name": "oglen-menusu",
       "items": {
         "yiyecekler": [
           {
@@ -292,7 +292,7 @@
       }
     },
     {
-      "name": "Akşam",
+      "name": "aksam-menusu",
       "items": {
         "yiyecekler": [
           {

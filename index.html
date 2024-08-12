@@ -1,67 +1,69 @@
 <!doctype html>
 <html lang="en">
-  <head>
+<head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Yıldırım Bakery & Cafe</title>
     <link rel="stylesheet" href="/style.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-  </head>
-  <body>
+</head>
+<body>
     <nav class="navbar bg-body-tertiary">
         <div class="container-fluid">
-          <a class="navbar-brand" href="#">
-            <img src="/img/logo.png" alt="Logo" width="150" height="150" class="d-inline-block align-text-top">
-          </a>
-          <h1 class="logo-title"> Yıldırım Bakery & Cafe</h1>
+            <a class="navbar-brand" href="#">
+                <img src="/img/logo.png" alt="Logo" width="150" height="150" class="d-inline-block align-text-top">
+            </a>
+            <h1 class="logo-title"> Yıldırım Bakery & Cafe</h1>
         </div>
-      </nav>
-      <header >
-        <div class="restoran-aciklama">  <h4>Yıldırım Bakery & Cafe, taze ve lezzetli unlu mamulleri ile tanınan bir aile işletmesidir. Sabah kahvaltısından, öğleden sonra kahve molasına kadar her anınızı lezzetlendirecek çeşitli ekmek, poğaça, kurabiye, pasta ve tatlı seçenekleri sunmaktadır. Sıcak ve samimi atmosferi ile misafirlerine hem keyifli bir dinlenme yeri hem de kaliteli ürünler sunmayı amaçlar. Günün yorgunluğunu atabileceğiniz ya da sevdiklerinizle hoş vakit geçirebileceğiniz Yıldırım Bakery & Cafe'de, geleneksel tatların modern yorumlarıyla buluşacaksınız.</h4>
+    </nav>
+    <header>
+        <div class="restoran-aciklama">
+            <h4>Fresh and Delicious: The Signature of Yıldırım Bakery & Cafe</h4>
         </div>
 
         <div class="restorant-menu">
-          <div class="ana-menuler">
-            <div class="kahvaltilar">Kahvaltılar</div>
-            <div class="oglen-menusu">Öglen Menüsü</div>
-            <div class="aksam-menusu">Akşam Menüsü</div>
-          </div>
+            <div class="ana-menuler">
+                <div class="kahvaltilar">Kahvaltılar</div>
+                <div class="oglen-menusu">Öğlen Menüsü</div>
+                <div class="aksam-menusu">Akşam Menüsü</div>
+            </div>
 
-          <div class="alternatif-menu">
-            <div class="yiyecek-menusu">Yiyecek Menüsü</div>
-            <div class="icecek-menusu">Içecek Menüsü</div>
-          </div>
-          
-          
+            <div class="alternatif-menu">
+                <div class="yiyecek-menusu">Yiyecek Menüsü</div>
+                <div class="icecek-menusu">İçecek Menüsü</div>
+            </div>
         </div>
 
+        <!-- Ürün Detay Kısmı -->
         <div class="genel-urunler">
-          <div class="menu-detay">
-
-            <div class="urun">
-              <img class="urun-gorsel"  src="/img/turk.jpg" alt="Türk kahvesi">
+            <div class="menu-detay">
+                <div id="menu-container"></div>
+                    <img class="urun-gorsel" src="/img/turk.jpg" alt="Türk kahvesi">
+                </div>
+                <div class="urun-bilgi">
+                    <div class="urun-adi">Turk Kahvesi</div>
+                    <div class="urun-aciklama">Türk kahvesi, daha çok Türk kültüründe önemli yere sahip Osmanlı İmparatorluğu'ndan günümüze kadar gelmiş...</div>
+                    <div class="urun-fiyat">50 TL</div>
+                    <button class="btn btn-primary sepete-ekle">Sepete Ekle</button>
+                    
+                </div>
             </div>
-            <div class="urun-bilgi">
-              <div class="urun-adi">ürünün Adı</div>
-              <div class="urun-aciklama"> Ürünün Açıklaması</div>
-              <div class="urun-fiyat">Ürünün Fiyatı</div>
-              <div class="sepete-ekle">Sepete Ekle</div>
+            
+
+            <!-- Sepet Detay Kısmı -->
+            <div class="sepet-detay">
+                <h3>Sepetim</h3>
+                <ul id="sepet-listesi" class="list-group">
+                    <!-- Sepet Ürünleri Buraya Eklenecek -->
+                </ul>
+                <div class="toplam-fiyat">
+                    <h4>Toplam: <span id="toplam-fiyat">0</span> TL</h4>
+                </div>
+                <button class="btn btn-success">Siparişi Tamamla</button>
             </div>
-
-
-            <div class="sepet-detay">Sepetim</div>
-
-          </div>
-
-
-
-
-          <div class="urun-detay">urun-detay</div>
-         
         </div>
-        
-      </header>
-
+    </header>
+    <script src="/scrypt.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-  </body>
+</body>
 </html>
