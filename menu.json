@@ -1,7 +1,7 @@
 {
   "categories": [
     {
-      "name": "Kahvaltilar",
+      "name": "Kahvaltılar",
       "items": {
         "yiyecekler": [
           {
@@ -59,9 +59,8 @@
             "description": "Un, süt, yumurta, peynir, ıspanak",
             "price": 32,
             "image": "krep_tuzlu.jpg"
-          }
-        ],
-        "içecekler": [
+          },
+        
           {
             "id": 9,
             "name": "Siyah Çay",
@@ -136,7 +135,7 @@
       }
     },
     {
-      "name": "oglen-menusu",
+      "name": "Öğlen Menüsü",
       "items": {
         "yiyecekler": [
           {
@@ -229,9 +228,8 @@
             "description": "Mozzarella, gorgonzola, parmesan, rokfor",
             "price": 50,
             "image": "pizza_dort_peynirli.jpg"
-          }
-        ],
-        "içecekler": [
+          },
+        
           {
             "id": 32,
             "name": "Limonlu Soda",
@@ -292,7 +290,7 @@
       }
     },
     {
-      "name": "aksam-menusu",
+      "name": "Akşam Menüsü",
       "items": {
         "yiyecekler": [
           {
@@ -364,9 +362,9 @@
             "description": "Kahve aromalı İtalyan tatlısı",
             "price": 30,
             "image": "tatli_tiramisu.jpg"
-          }
-        ],
-        "içecekler": [
+      },
+         
+        
           {
             "id": 50,
             "name": "Kırmızı Şarap",

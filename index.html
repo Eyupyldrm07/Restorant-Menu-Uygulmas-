@@ -11,7 +11,7 @@
     <nav class="navbar bg-body-tertiary">
         <div class="container-fluid">
             <a class="navbar-brand" href="#">
-                <img src="/img/logo.png" alt="Logo" width="150" height="150" class="d-inline-block align-text-top">
+                <img id="logo" src="/img/logo.png" alt="Logo" width="150" height="150" class="d-inline-block align-text-top">
             </a>
             <h1 class="logo-title"> Yıldırım Bakery & Cafe</h1>
         </div>
@@ -23,14 +23,14 @@
 
         <div class="restorant-menu">
             <div class="ana-menuler">
-                <div class="kahvaltilar">Kahvaltılar</div>
-                <div class="oglen-menusu">Öğlen Menüsü</div>
-                <div class="aksam-menusu">Akşam Menüsü</div>
+              <a  class="navmenu" href="#"><div class="kahvaltilar"  >Kahvaltılar</div></a>
+               <a class="navmenu" href="#"><div class="oglen-menusu">Öğlen Menüsü</div></a> 
+               <a class="navmenu" href="#"><div class="aksam-menusu">Akşam Menüsü</div></a> 
             </div>
 
             <div class="alternatif-menu">
-                <div class="yiyecek-menusu">Yiyecek Menüsü</div>
-                <div class="icecek-menusu">İçecek Menüsü</div>
+               <a href="#" class="navmenu"><div class="yiyecek-menusu">Yiyecek Menüsü</div></a> 
+              <a href="#" class="navmenu"> <div class="icecek-menusu">İçecek Menüsü</div></a> 
             </div>
         </div>
 
@@ -38,14 +38,8 @@
         <div class="genel-urunler">
             <div class="menu-detay">
                 <div id="menu-container"></div>
-                    <img class="urun-gorsel" src="/img/turk.jpg" alt="Türk kahvesi">
                 </div>
                 <div class="urun-bilgi">
-                    <div class="urun-adi">Turk Kahvesi</div>
-                    <div class="urun-aciklama">Türk kahvesi, daha çok Türk kültüründe önemli yere sahip Osmanlı İmparatorluğu'ndan günümüze kadar gelmiş...</div>
-                    <div class="urun-fiyat">50 TL</div>
-                    <button class="btn btn-primary sepete-ekle">Sepete Ekle</button>
-                    
                 </div>
             </div>
             
@@ -59,7 +53,8 @@
                 <div class="toplam-fiyat">
                     <h4>Toplam: <span id="toplam-fiyat">0</span> TL</h4>
                 </div>
-                <button class="btn btn-success">Siparişi Tamamla</button>
+                <button id="siparisi-tamamla" class="btn btn-success">Siparişi Tamamla</button>
+                <button id="sepeti-temizle" class="btn btn-danger">Sepeti Temizle</button>
             </div>
         </div>
     </header>

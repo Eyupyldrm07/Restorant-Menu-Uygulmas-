@@ -1,142 +1,197 @@
-// Sepet dizisi: Sepete eklenen ürünleri saklayacak
-let sepet = [];
-
-// Ürün ekle butonuna tıklama eventi
-document.querySelector('.sepete-ekle').addEventListener('click', function() {
-    const urunAdi = document.querySelector('.urun-adi').textContent;
-    const urunFiyat = parseFloat(document.querySelector('.urun-fiyat').textContent.replace(' TL', ''));
-    
-    // Ürünü sepete ekle
-    sepeteEkle(urunAdi, urunFiyat);
-});
-
-// Sepete ürün ekleme fonksiyonu
-function sepeteEkle(urunAdi, urunFiyat) {
-    const urunIndex = sepet.findIndex(item => item.urunAdi === urunAdi);
-
-    if (urunIndex > -1) {
-        // Ürün sepette varsa, adetini arttır
-        sepet[urunIndex].adet += 1;
-    } else {
-        // Yeni ürün olarak sepete ekle
-        sepet.push({
-            urunAdi: urunAdi,
-            urunFiyat: urunFiyat,
-            adet: 1
-        });
-    }
-    
-    // Sepeti güncelle
-    sepetiGuncelle();
-}
-
-
-// Sepeti güncelleme fonksiyonu
-function sepetiGuncelle() {
-    const sepetListesi = document.getElementById('sepet-listesi');
-    sepetListesi.innerHTML = '';
-
-    let toplamFiyat = 0;
-
-    sepet.forEach(item => {
-        toplamFiyat += item.urunFiyat * item.adet;
-
-        const listItem = document.createElement('li');
-        listItem.className = 'list-group-item';
-
-        listItem.innerHTML = `
-            <span>${item.urunAdi}</span>
-            <span>${item.urunFiyat} TL x ${item.adet}</span>
-            <button class="btn btn-sm btn-primary adet-arttir">+</button>
-            <button class="btn btn-sm btn-primary adet-azalt">-</button>
-        `;
-
-        // Artır ve azalt butonlarına event listener ekle
-        listItem.querySelector('.adet-arttir').addEventListener('click', function() {
-            item.adet += 1;
-            sepetiGuncelle();
-        });
-
-        listItem.querySelector('.adet-azalt').addEventListener('click', function() {
-            if (item.adet > 1) {
-                item.adet -= 1;
-            } else {
-                sepet = sepet.filter(i => i.urunAdi !== item.urunAdi);
-            }
-            sepetiGuncelle();
-        });
-
-        let btnclear=document.querySelector('#btnclear');
-        btnclear.addEventListener('click',function(){sepet.splice(0,sepetListesi.lenght);
-            sepetiGuncelle();
-
-        })
-
-
-        sepetListesi.appendChild(listItem);
-    });
-
-    document.getElementById('toplam-fiyat').textContent = toplamFiyat.toFixed(2);
-}
-
-document.addEventListener('DOMContentLoaded', function() {
-    fetchMenuData();
-});
-
-function fetchMenuData() {
+document.addEventListener("DOMContentLoaded", function() {
     fetch('menu.json')
-        .then(response => {
-            if (!response.ok) {
-                throw new Error('Ağ hatası: ' + response.status);
-            }
-            return response.json();
-        })
+        .then(response => response.json())
         .then(data => {
-            renderMenu(data);
+            displayMenu(data);
         })
-        .catch(error => {
-            console.error('Menü verisi alınırken hata oluştu:', error);
-        });
-}
+        .catch(error => console.error('Error loading JSON:', error));
 
-function renderMenu(menuData) {
+    // Sepeti Temizle butonu için event listener ekle
+    document.getElementById('sepeti-temizle').addEventListener('click', clearCart);
+});
+
+let cart = [];
+
+function displayMenu(menuData) {
     const menuContainer = document.getElementById('menu-container');
     
-    menuData.forEach(section => {
-        const sectionElement = document.createElement('div');
-        sectionElement.classList.add('menu-section');
+    menuData.categories.forEach(category => {
+        const categoryElement = document.createElement('div');
+        categoryElement.classList.add('category');
         
-        const sectionTitle = document.createElement('h2');
-        sectionTitle.textContent = section.category;
-        sectionElement.appendChild(sectionTitle);
-
-        const itemList = document.createElement('ul');
-        section.items.forEach(item => {
-            const itemElement = document.createElement('li');
-            itemElement.classList.add('menu-item');
-
-            const itemName = document.createElement('span');
-            itemName.classList.add('menu-item-name');
-            itemName.textContent = item.name;
-            itemElement.appendChild(itemName);
-
-            const itemDescription = document.createElement('span');
-            itemDescription.classList.add('menu-item-description');
-            itemDescription.textContent = item.description;
-            itemElement.appendChild(itemDescription);
-
-            const itemPrice = document.createElement('span');
-            itemPrice.classList.add('menu-item-price');
-            itemPrice.textContent = item.price;
-            itemElement.appendChild(itemPrice);
-
-            itemList.appendChild(itemElement);
+        const categoryTitle = document.createElement('h2');
+        categoryTitle.textContent = category.name;
+        categoryElement.appendChild(categoryTitle);
+        
+    
+        category.items.içecekler,içecekler.forEach(item => {
+            const itemElement = document.createElement('div');
+            itemElement.classList.add('urun');
+            
+            itemElement.innerHTML = `
+                <div class="urun-gorsel">
+                    <img src="${item.image}" alt="${item.name}" class="urun-gorsel-image">
+                </div>
+                <div class="urun-bilgi">
+                    <div class="urun-adi">${item.name}</div>
+                    <div class="urun-aciklama">${item.description}</div>
+                    <div class="urun-fiyat">${item.price} TL</div>
+                    <button class="btn btn-primary sepete-ekle" data-id="${item.id}" data-name="${item.name}" data-price="${item.price}">Sepete Ekle</button>
+                </div>
+            `;
+            
+            menuContainer.appendChild(itemElement);
         });
+    });
 
-        sectionElement.appendChild(itemList);
-        menuContainer.appendChild(sectionElement);
+    document.querySelectorAll('.sepete-ekle').forEach(button => {
+        button.addEventListener('click', addToCart);
     });
 }
+
+function addToCart(event) {
+    const button = event.target;
+    const id = button.getAttribute('data-id');
+    const name = button.getAttribute('data-name');
+    const price = parseFloat(button.getAttribute('data-price'));
+
+    const item = cart.find(item => item.id === id);
+
+    if (item) {
+        item.quantity += 1;
+    } else {
+        cart.push({ id, name, price, quantity: 1 });
+    }
+
+    updateCart();
+}
+
+function updateCart() {
+    const cartItemsContainer = document.getElementById('sepet-listesi');
+    const totalPriceElement = document.getElementById('toplam-fiyat');
+    
+    cartItemsContainer.innerHTML = '';
+    let totalPrice = 0;
+
+    cart.forEach(item => {
+        const itemElement = document.createElement('li');
+        itemElement.classList.add('list-group-item');
+        
+        itemElement.innerHTML = `
+            <div class="cart-item-name">${item.name}</div>
+            <div class="cart-item-quantity">
+                <button class="quantity-decrease" data-id="${item.id}">-</button>
+                ${item.quantity}
+                <button class="quantity-increase" data-id="${item.id}">+</button>
+            </div>
+            <div class="cart-item-total">${item.quantity * item.price} TL</div>
+            <button class="btn btn-danger remove-item" data-id="${item.id}">Sil</button>
+        `;
+        
+        cartItemsContainer.appendChild(itemElement);
+        totalPrice += item.quantity * item.price;
+    });
+
+    totalPriceElement.textContent = totalPrice.toFixed(2) + ' TL';
+
+    document.querySelectorAll('.quantity-increase').forEach(button => {
+        button.addEventListener('click', increaseQuantity);
+    });
+
+    document.querySelectorAll('.quantity-decrease').forEach(button => {
+        button.addEventListener('click', decreaseQuantity);
+    });
+
+    document.querySelectorAll('.remove-item').forEach(button => {
+        button.addEventListener('click', removeItem);
+    });
+}
+
+function increaseQuantity(event) {
+    const id = event.target.getAttribute('data-id');
+    const item = cart.find(item => item.id === id);
+    if (item) {
+        item.quantity += 1;
+        updateCart();
+    }
+}
+
+function decreaseQuantity(event) {
+    const id = event.target.getAttribute('data-id');
+    const item = cart.find(item => item.id === id);
+    if (item && item.quantity > 1) {
+        item.quantity -= 1;
+        updateCart();
+    } else if (item && item.quantity === 1) {
+        removeItem(event);
+    }
+}
+
+function removeItem(event) {
+    const id = event.target.getAttribute('data-id');
+    cart = cart.filter(item => item.id !== id);
+    updateCart();
+}
+
+// Sepeti Temizle fonksiyonu
+function clearCart() {
+    cart = [];
+    updateCart();
+}
+
+
+function displayMenu(menuData) {
+    const menuContainer = document.getElementById('menu-container');
+    
+    menuData.categories.forEach(category => {
+        const categoryElement = document.createElement('div');
+        categoryElement.classList.add('category');
+        
+        const categoryTitle = document.createElement('h2');
+        categoryTitle.textContent = category.name;
+        categoryElement.appendChild(categoryTitle);
+        
+        const rowElement = document.createElement('div');
+        rowElement.classList.add('urun-row'); // Yeni eklendi, ürünleri yan yana dizmek için
+
+        category.items.yiyecekler.forEach(item => {
+            const itemElement = document.createElement('div');
+            itemElement.classList.add('urun');
+            
+            itemElement.innerHTML = `
+                <div class="urun-gorsel">
+                    <img src="${item.image}" alt="${item.name}" class="urun-gorsel-image">
+                </div>
+                <div class="urun-bilgi">
+                    <div class="urun-adi">${item.name}</div>
+                    <div class="urun-aciklama">${item.description}</div>
+                    <div class="urun-fiyat">${item.price} TL</div>
+                    <button class="btn btn-primary sepete-ekle" data-id="${item.id}" data-name="${item.name}" data-price="${item.price}">Sepete Ekle</button>
+                </div>
+            `;
+            
+            rowElement.appendChild(itemElement);
+        });
+
+        categoryElement.appendChild(rowElement); // Ürün satırını kategoriye ekle
+        menuContainer.appendChild(categoryElement);
+    });
+
+    document.querySelectorAll('.sepete-ekle').forEach(button => {
+        button.addEventListener('click', addToCart);
+    });
+}
+
+
+
+
+
+
+
+
+
+
+
 
 
 
