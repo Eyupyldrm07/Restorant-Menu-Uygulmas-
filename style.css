@@ -1,257 +1,77 @@
-/* Genel Ayarlar */
-body {
-    font-family: Arial, sans-serif;
-    background-color: #f8f9fa;
-    color: #333;
-    margin: 0;
-    padding: 0;
+.tab-pane {
+    display: none; 
 }
-#logo{
-    margin-left: 25%;
+
+.tab-pane.active {
+    display: block; 
 }
 
 
-.navmenu{
-    text-decoration: none;
-    color: black;
-    border-radius: 8px;
-
-}
-
-/* Navbar */
-.navbar {
-    background-color: #6c757d;
-    padding: 10px 20px;
-}
-
-.logo-title {
-    color: black;
-    font-size: 38px;
-    margin-right: 40%;
-}
-
-/* Restoran Açıklama */
-.restoran-aciklama {
-    background-color: #2683df;
-    padding: 20px;
+.logo-title{
     text-align: center;
-    border-bottom: 2px solid #6c757d;
 }
-
-.restoran-aciklama h4 {
-    margin: 0;
-    font-size: 30px;
-}
-
-/* Menü */
-.restorant-menu {
-    display: flex;
-    justify-content: space-around;
-    padding: 20px 0;
-    background-color: #f8f9fa;
-}
-
-.ana-menuler, .alternatif-menu {
-    display: flex;
-    justify-content: space-around;
-    width: 45%;
-}
-
-.ana-menuler div, .alternatif-menu div {
-    background-color: #adb5bd;
-    padding: 15px;
+.menu-title{
     text-align: center;
-    font-size: 18px;
-    border-radius: 8px;
-    transition: background-color 0.3s ease;
+
 }
 
-.ana-menuler div:hover, .alternatif-menu div:hover {
-    background-color: #6c757d;
-    color: white;
-    cursor: pointer;
-}
-
-/* Ürünler */
-#menu-container {
+.nav-tabs{
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin: 20px;
-    border: 3px solid black;
-}
-
-.category {
-    display: flex;
-    flex-wrap: wrap;
     justify-content: center;
-    gap: 20px;
-}
+    padding: 0%;
 
-.urun {
-    flex: 1 0 300px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+}
+.menu-navbar{
     border: 3px solid black;
-    padding: 15px;
-    margin: 10px;
-    max-width: 300px;
-    border-radius: 5px;
-    text-align: center;
-}
+    border-radius: 30px;
 
-.urun-gorsel {
-    flex: 1;
 }
-
-.urun-gorsel-image {
-    max-width: 100%;
-    height: auto;
-    border-radius: 5px;
-}
-
-.urun-bilgi {
-    flex: 2;
-    padding: 0 15px;
-}
-
-.urun-adi {
-    font-size: 1.2em;
-    margin: 0 0 10px 0;
-}
-
-.urun-aciklama {
-    font-size: 0.9em;
-    margin: 0 0 10px 0;
-}
-
-.urun-fiyat {
-    font-size: 1.1em;
-    margin: 0 0 10px 0;
-}
-
-.btn-primary {
-    background-color: #007bff;
-    border: none;
-    color: white;
-    padding: 10px 20px;
-    text-align: center;
-    font-size: 1em;
-    margin: 10px 0;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-.btn-primary:hover {
-    background-color: #54a0f1;
-}
-
-/* Sepet Detay Alanı */
-.sepet-detay {
-    position: absolute;
-    right: 20px;
-    top: calc(70px + 20px); /* Navbar yüksekliğini hesaba katarak top değeri belirlenir */
-    width: 300px;
-    background-color: #f8f9fa;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-    z-index: 1000;
-    margin-top: 19%;
-}
-
-/* Sepet Başlığı */
-.sepet-detay h3 {
-    font-size: 24px;
-    margin-bottom: 20px;
-    color: #343a40;
-}
-
-/* Sepet Ürün Listesi */
-#sepet-listesi {
-    margin: 0;
-    padding: 0;
-    list-style-type: none;
-}
-
-#sepet-listesi .list-group-item {
+.sabah-yiyecek{
+    border-radius: 30px;
+    margin-left: 5%;
+    border: 3px solid black;
+    padding: 5%;
+    flex-direction: row;
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px 0;
-    border-bottom: 1px solid #ddd;
 }
-
-#sepet-listesi .cart-item-name {
-    font-weight: bold;
-    color: #007bff;
-}
-
-#sepet-listesi .cart-item-quantity,
-#sepet-listesi .cart-item-total {
-    color: #6c757d;
-}
-
-/* Toplam Fiyat */
-.toplam-fiyat {
-    margin-top: 20px;
-    font-size: 18px;
-    color: #28a745;
-}
-
-.toplam-fiyat h4 {
-    margin: 0;
+.sabah-icecek{
+    border-radius: 30px;
+    margin-left: 5%;
+    border: 3px solid black;
+    padding: 5%;
+    flex-direction: row;
     display: flex;
-    justify-content: space-between;
-    align-items: center;
 }
-
-/* Butonlar */
-.btn-success {
-    margin-top: 20px;
-    width: 100%;
-    padding: 10px;
-    font-size: 16px;
-    font-weight: bold;
-    background-color: #28a745;
-    border: none;
-    border-radius: 4px;
-    color: #fff;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
-
-.btn-success:hover {
-    background-color: #218838;
-}
-
-#siparisi-tamamla, #sepeti-temizle {
-    display: inline-block;
-    width: calc(50% - 5px);
-    margin-right: 5px;
-    text-align: center;
-}
-
-#sepeti-temizle {
-    margin-right: 0;
-}
-
-/* Genel Ürünler ve Kategoriler */
-.genel-urunler {
+.ogle-icecek{
+    border-radius: 30px;
+    margin-left: 5%;
+    border: 3px solid black;
+    padding: 5%;
+    flex-direction: row;
     display: flex;
-    justify-content: space-between;
-    margin-right: 320px;
 }
-
-.menu-detay {
-    flex-grow: 3;
-    padding-right: 20px;
-}
-
-.urun-row {
+.ogle-yiyecek{
+    border-radius: 30px;
+    margin-left: 5%;
+    border: 3px solid black;
+    padding: 5%;
+    flex-direction: row;
     display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-    margin-bottom: 30px;
+}
+
+.tekurun-title{
+    align-content: center;
+    margin-left: 40%;
+    width: 200px;
+}
+.tekurun-fiyat{
+    align-content: center;
+    margin-left: 20%;
+
+}
+.tekurun-sepet{
+    align-content: center;
+    margin-left: 20%;
+    
+
 }
