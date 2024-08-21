@@ -6,72 +6,231 @@
     display: block; 
 }
 
-
-.logo-title{
-    text-align: center;
-}
-.menu-title{
-    text-align: center;
-
+.container-fluid {
+    border-radius: 30px;
+    background-color: #ddd;
+    
 }
 
-.nav-tabs{
+.container-fluid:hover {
+    background-color: #ff6f61;
+    color: white;
+}
+
+
+
+.menu-title {
+    text-align: center;
+    background-color: #ddd;
+    border-radius: 30px;
+
+
+}
+
+.menu-title:hover {
+    text-align: center;
+    background-color: #ff6f61;
+    color: white;
+    border-radius: 30px;
+    
+}
+
+.nav-tabs {
     display: flex;
     justify-content: center;
-    padding: 0%;
-
+    padding: 0;
 }
-.menu-navbar{
-    border: 3px solid black;
-    border-radius: 30px;
 
+.nav-link {
+    background-color: white; 
+    color: black; 
+    border: 2px solid black;
 }
-.sabah-yiyecek{
+
+.nav-link:hover {
+    background-color: #ff6f61;
+    color: white;
+}
+
+.menu-navbar {
     border-radius: 30px;
-    margin-left: 5%;
-    border: 3px solid black;
-    padding: 5%;
-    flex-direction: row;
+    background-color: #ddd;
+}
+/* Ürün Kartları için Düzenleme */
+.sabah-yiyecek, .sabah-icecek, .ogle-icecek, .ogle-yiyecek, .aksam-icecek, .aksam-yiyecek {
+    border-radius: 15px;
+    margin-left: auto;
+    margin-right: auto;
+    border: 1px solid #ddd;
+    padding: 20px;
     display: flex;
-}
-.sabah-icecek{
-    border-radius: 30px;
-    margin-left: 5%;
-    border: 3px solid black;
-    padding: 5%;
-    flex-direction: row;
-    display: flex;
-}
-.ogle-icecek{
-    border-radius: 30px;
-    margin-left: 5%;
-    border: 3px solid black;
-    padding: 5%;
-    flex-direction: row;
-    display: flex;
-}
-.ogle-yiyecek{
-    border-radius: 30px;
-    margin-left: 5%;
-    border: 3px solid black;
-    padding: 5%;
-    flex-direction: row;
-    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 800px;
+    background-color: #ffffff;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, background-color 0.3s ease;
 }
 
-.tekurun-title{
-    align-content: center;
-    margin-left: 40%;
-    width: 200px;
+.sabah-yiyecek:hover, .sabah-icecek:hover, .ogle-icecek:hover, .ogle-yiyecek:hover, .aksam-icecek:hover, .aksam-yiyecek:hover {
+    background-color: #ff6f61;
+    color: white;
+    transform: translateY(-5px);
 }
-.tekurun-fiyat{
-    align-content: center;
-    margin-left: 20%;
 
+.tekitem-title {
+    margin-left: 20px;
+    font-size: 1.5rem;
+    font-weight: bold;
 }
-.tekurun-sepet{
-    align-content: center;
-    margin-left: 20%;
-    
 
+.tekitem-desc {
+    font-size: 1rem;
+    margin-left: 20px;
+}
+
+.tekitem-fiyat {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.tekitem-sepet {
+    margin-left: 20px;
+    font-size: 1.1rem;
+}
+
+/* Mobil Görünüm için Düzenleme */
+@media (max-width: 768px) {
+    .sabah-yiyecek, .sabah-icecek, .ogle-icecek, .ogle-yiyecek, .aksam-icecek, .aksam-yiyecek {
+        flex-direction: column;
+        align-items: center;
+        padding: 15px;
+    }
+
+    .tekitem-title, .tekitem-desc, .tekitem-fiyat, .tekitem-sepet {
+        margin-left: 0;
+        text-align: center;
+    }
+
+    .tekitem-fiyat, .tekitem-sepet {
+        margin-top: 10px;
+    }
+}
+
+
+
+
+
+
+/* Sepete Ekle Butonu */
+.alisveris-sepeti {
+    background-color: #ff6f61; 
+    color: white;
+    border: 2px solid #ff6f61;
+    border-radius: 10px;
+    font-size: x-large; 
+}
+
+.alisveris-sepeti:hover {
+    background-color: #ffffff;
+    color: black; 
+}
+
+.sepete-ekle-btn {
+    background-color: #ff6f61; 
+    color: white;
+    border-radius: 15px;
+}
+
+.sepete-ekle-btn:hover {
+    background-color: #ffffff;
+    color: black; 
+}
+
+/* Modern Şekiller Eklenmesi */
+.sabah-yiyecek, .sabah-icecek, .ogle-icecek, .ogle-yiyecek, .aksam-icecek, .aksam-yiyecek {
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.sabah-yiyecek:hover, .sabah-icecek:hover, .ogle-icecek:hover, .ogle-yiyecek:hover, .aksam-icecek:hover, .aksam-yiyecek:hover {
+    transform: translateY(-5px);
+}
+
+
+/* Genel Sepet Tasarımı */
+.modal-content {
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.modal-header {
+    background-color: #ff6f61;
+    color: white;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+}
+
+.modal-title {
+    font-size: 1.5rem;
+}
+
+.modal-body {
+    padding: 20px;
+}
+
+#sepet-icerik .d-flex {
+    background-color: #f9f9f9;
+    padding: 10px;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+#sepet-icerik h6 {
+    margin: 0;
+    font-size: 1.2rem;
+    color: #333;
+}
+
+#sepet-icerik p {
+    margin: 5px 0 0 0;
+    font-size: 1rem;
+    color: #777;
+}
+
+.adet-input {
+    width: 50px;
+    margin-left: 5px;
+    padding: 5px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.sepete-ekle-btn {
+    background-color: #ff6f61;
+    color: white;
+    border-radius: 15px;
+    padding: 10px 20px;
+    font-size: 1.1rem;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.sepete-ekle-btn:hover {
+    background-color: #ffffff;
+    color: #ff6f61;
+    border: 1px solid #ff6f61;
+}
+
+.btn-danger {
+    background-color: #e74c3c;
+    border: none;
+    border-radius: 15px;
+    padding: 5px 10px;
+    font-size: 0.9rem;
+    transition: background-color 0.3s ease;
+}
+
+.btn-danger:hover {
+    background-color: #c0392b;
 }

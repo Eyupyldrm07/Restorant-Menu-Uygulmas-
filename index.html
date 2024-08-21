@@ -11,17 +11,22 @@
   <body>
     <header>
         <nav class="navbar bg-body-tertiary">
-            <div class="container-fluid " style="background-color: #e3f2fd;">
+            <div class="container-fluid " >
               <a class="navbar-brand " href="#">
-                <img src="/Restorant-Menu-Uygulmas-/img/logo.png" alt="Logo" width="150" height="150" class="d-inline-block align-text-top" >
+                <img src="/Restorant-Menu-Uygulmas-/img/logo.png" alt="Logo" width="250" height="250" class="d-inline-block align-text-top " >
               </a>
               <h4 class="logo-title">Yıldırım Bakery & Cafe</h4>
             </div>
+            
           </nav>
+          
     </header>
     <main>
-        <div class="menu-title"> <H4>Fresh and Delicious: The Signature of Yıldırım Bakery & Cafe</H4>  </div>
-
+      <div class="menu-title"> <H4>Fresh and Delicious: The Signature of Yıldırım Bakery & Cafe</H4>    <button type="button" class="alisveris-sepeti" data-bs-toggle="modal" data-bs-target="#sepetModal">
+        Alışveriş Sepeti <span id="sepet-count" class="badge bg-secondary">0</span>
+    </button></div>
+      
+      
 
         <div class="menu-navbar">
             <ul class="nav nav-tabs" id="myTabust" role="tablist">
@@ -46,29 +51,12 @@
                         </li>
                       </ul>
                       <div class="tab-pane fade  show active" id="sabahyiyecek-tab-pane" role="tabpanel" aria-labelledby="yiyecek-tab" tabindex="0">
-                        <div class="sabah-yiyecek">
-                            <div class="tekurun">
-                                <img src="/Restorant-Menu-Uygulmas-/img/logo.png" alt="Logo" width="75" height="75" class="d-inline-block align-text-top" >
-                            </div>
-                            <div class="tekurun-desc">
-                                <div class="tekurun-title">
-                                    <h3>Urun adi</h3>
-                                    <h5>Urun aciklama </h5>
-                                </div>
-                            </div>
-                            <div class="tekurun-fiyat">
-                                <h5>Fiyat</h5>
-                            </div>
-                            <div class="tekurun-sepet">
-                                <button class="btn btn-primary">Sepete Ekle </button>
-                            </div>
-                        </div>
                     </div>
-                      <div class="tab-pane fade show active" id="sabahicecek-tab-pane" role="tabpanel" aria-labelledby="icecek-tab" tabindex="0">
+                      <div class="tab-pane fade " id="sabahicecek-tab-pane" role="tabpanel" aria-labelledby="icecek-tab" tabindex="0">
                         <div class="sabahicecekler" style="  padding: 5px;"></div>
                       </div>
                 </div>
-                <div class="tab-pane fade show active" id="ogle-tab-pane" role="tabpanel" aria-labelledby="profile-tab" tabindex="0">
+                <div class="tab-pane fade " id="ogle-tab-pane" role="tabpanel" aria-labelledby="profile-tab" tabindex="0">
                     <ul class="nav nav-tabs" id="oglen-tab-alt" role="tablist">
                         <li class="nav-item" role="presentation">
                           <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#oglenyiyecek-tab-pane" type="button" role="tab" aria-controls="oglenyiyecek-tab-pane" aria-selected="true">Öğlen Yiyecekler</button>
@@ -80,7 +68,7 @@
                       <div class="tab-pane fade  show active" id="oglenyiyecek-tab-pane" role="tabpanel" aria-labelledby="yiyecek-tab" tabindex="0">
                         <div class="oglenyiyecekler" style="  padding: 5px;"></div>
                       </div>
-                      <div class="tab-pane fade show active" id="oglenicecek-tab-pane" role="tabpanel" aria-labelledby="icecek-tab" tabindex="0">
+                      <div class="tab-pane fade" id="oglenicecek-tab-pane" role="tabpanel" aria-labelledby="icecek-tab" tabindex="0">
                         <div class="oglenicecekler" style="  padding: 5px;"></div>
                       </div>
         
@@ -99,7 +87,7 @@
                             <div class="aksamicecekler" style="  padding: 5px;"></div>
                           </div>
                       </div>
-                      <div class="tab-pane fade show active" id="aksamicecek-tab-pane" role="tabpanel" aria-labelledby="icecek-tab" tabindex="0">
+                      <div class="tab-pane fade " id="aksamicecek-tab-pane" role="tabpanel" aria-labelledby="icecek-tab" tabindex="0">
                         <div class="tab-pane fade" id="oglenicecek-tab-pane" role="tabpanel" aria-labelledby="icecek-tab" tabindex="0">
                             <div class="aksamicecekler" style="  padding: 5px;"></div>
                           </div>
@@ -108,14 +96,53 @@
               </div>
         
         </div>
+        <div class="modal fade" id="itemModal" tabindex="-1" aria-labelledby="itemModalLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="itemModalLabel">Ürün Detayları</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                <!-- Ürün Detayları Burada Görüntülenecek -->
+                <img id="modalitemGorsel" src="" alt="Ürün Görseli" width="100%">
+                <h3 id="modalitemAdi"></h3>
+                <h5 id="modalitemAciklama"></h5>
+                <h6 id="modalitemFiyat"></h6>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Kapat</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="modal fade" id="sepetModal" tabindex="-1" aria-labelledby="sepetModalLabel" aria-hidden="true">
+          <div class="modal-dialog">
+              <div class="modal-content">
+                  <div class="modal-header">
+                      <h5 class="modal-title" id="sepetModalLabel">Alışveriş Sepeti</h5>
+                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body">
+                      <div id="sepet-icerik"></div>
+                      <div class="d-flex justify-content-between">
+                          <h5>Toplam: <span id="toplam-tutar">0</span> TL</h5>
+                      </div>
+                  </div>
+                  <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Kapat</button>
+                      <button type="button" class="sepete-ekle-btn">Alışverişi Tamamla</button>
+                  </div>
+              </div>
+          </div>
+      </div>
+    
+        
 
     </main>
 
 
 
-
-
-   <footer></footer>
     <script src="/Restorant-Menu-Uygulmas-/scrypt.js"></script>
   </body>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
