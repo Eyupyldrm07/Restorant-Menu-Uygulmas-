@@ -30,4 +30,3 @@ This project is a web application for **Yıldırım Bakery & Cafe** that allows 
 - **Bootstrap**: Used for responsive design elements like buttons, grids, and forms.
 
 ## Project View
-Include screenshots or descriptions of key pages/features of the web application.
