@@ -35,6 +35,8 @@ This project is a web application for **Yıldırım Bakery & Cafe** that allows 
 ![image](https://github.com/user-attachments/assets/0bf7b5e8-e8fe-4a78-a3f9-82c38da9c4fb)
 ![image](https://github.com/user-attachments/assets/0303c5ba-82cd-40df-9758-563282774dc3)
 ![image](https://github.com/user-attachments/assets/bcf7d7b0-ff48-4c06-aa4b-aae5c08702ec)
+![image](https://github.com/user-attachments/assets/3749e0dd-99f4-4566-a2f9-fe292f6e761e)
+
 
 
 
