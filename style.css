@@ -7,8 +7,7 @@
 }
 
 .container-fluid {
-    border-radius: 30px;
-    background-color: #ddd;
+    background-color: #B2DFDB;
     
 }
 
@@ -19,10 +18,11 @@
 
 
 
+
+
 .menu-title {
     text-align: center;
-    background-color: #ddd;
-    border-radius: 30px;
+    background-color: #B2DFDB;
 
 
 }
@@ -31,7 +31,6 @@
     text-align: center;
     background-color: #ff6f61;
     color: white;
-    border-radius: 30px;
     
 }
 
@@ -53,15 +52,14 @@
 }
 
 .menu-navbar {
-    border-radius: 30px;
-    background-color: #ddd;
+    background-color: #B2DFDB;
 }
 /* Ürün Kartları için Düzenleme */
 .sabah-yiyecek, .sabah-icecek, .ogle-icecek, .ogle-yiyecek, .aksam-icecek, .aksam-yiyecek {
     border-radius: 15px;
     margin-left: auto;
     margin-right: auto;
-    border: 1px solid #ddd;
+    border: 1px solid #B2DFDB;
     padding: 20px;
     display: flex;
     align-items: center;
@@ -202,7 +200,7 @@
     width: 50px;
     margin-left: 5px;
     padding: 5px;
-    border: 1px solid #ddd;
+    border: 1px solid #B2DFDB;
     border-radius: 5px;
     text-align: center;
 }
